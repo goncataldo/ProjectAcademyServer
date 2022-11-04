@@ -74,10 +74,9 @@ const createOriented = async (req, res) => {
     });
     const check = false
     if(check===false) {
- db.sequelize.query("SET auto_increment_offset = 1")
- db.sequelize.query("SET auto_increment_increment = 1")
- db.sequelize.query("SET @counter = 0;")
- db.sequelize.query("UPDATE orienteds SET id = @counter := @counter + 1 ORDER BY id")
+
+ await db.sequelize.query("SET @counter = 0;")
+ await db.sequelize.query("UPDATE orienteds SET id = @counter := @counter + 1 ORDER BY id")
       check === true
     }
     if(check===true){
