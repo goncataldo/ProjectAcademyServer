@@ -3,6 +3,8 @@ const {
   orienteds: ModelOriented,
   counselors: ModelCounselor,
 } = require("../database/models");
+const db = require("../database/models/index.js")
+
 
 // URL: orientados
 const getAllOriented = async (req, res) => {
@@ -70,7 +72,8 @@ const createOriented = async (req, res) => {
       dni,
       password: await bcryptjs.hash(req.body.password, 10),
     });
-
+    await db.query("SET @counter = 0;")
+    await db.query("UPDATE users SET id = @counter := @counter + 1 ORDER BY id")
     !user ?
       res.status(204).json({
         message: "Something went wrong",
