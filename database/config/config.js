@@ -1,23 +1,23 @@
 module.exports = {
   development: {
-    username: "root", // ← Usuario de la DB
-    password: "", // ← Contraseña del usuario de la DB
-    database: "project_academy", // ← Nombre de la DB previamente creada
-    host: "127.0.0.1",
+    username: "b6ab5869ae32f8", // ← Usuario de la DB
+    password: "227eb588", // ← Contraseña del usuario de la DB
+    database: "heroku_141a1d247d27268", // ← Nombre de la DB previamente creada
+    host: "us-cdbr-east-06.cleardb.net",
     dialect: "mysql",
   },
   test: {
-    username: "root",
-    password: null,
-    database: "database_test",
-    host: "127.0.0.1",
+    username: "b6ab5869ae32f8", // ← Usuario de la DB
+    password: "227eb588", // ← Contraseña del usuario de la DB
+    database: "heroku_141a1d247d27268", // ← Nombre de la DB previamente creada
+    host: "us-cdbr-east-06.cleardb.net",
     dialect: "mysql",
   },
   production: {
-    username: "root",
-    password: null,
-    database: "database_production",
-    host: "127.0.0.1",
+    username: "b6ab5869ae32f8", // ← Usuario de la DB
+    password: "227eb588", // ← Contraseña del usuario de la DB
+    database: "heroku_141a1d247d27268", // ← Nombre de la DB previamente creada
+    host: "us-cdbr-east-06.cleardb.net",
     dialect: "mysql",
   },
 };

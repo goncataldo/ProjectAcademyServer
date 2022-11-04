@@ -24,7 +24,7 @@ const PORT = process.env.PORT || "8000";
 app.use(
   cors({
     credentials: true,
-    origin: [`http://localhost:${process.env.FRONT_PORT}`],
+    origin: [`https://project-academy-g2.netlify.app/`],
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
@@ -52,7 +52,7 @@ const dbStatus = async () => {
     console.log(`Database connected`);
     app.listen(PORT, () => {
       console.log(
-        `SERVER UP running in http://localhost:${PORT} and front in ${process.env.FRONT_PORT}`
+        `SERVER UP running in https://project-academy-arb.herokuapp.com/ and front in https://project-academy-g2.netlify.app/`
       );
     });
   } catch (error) {
