@@ -3,7 +3,7 @@ const {
   orienteds: ModelOriented,
   counselors: ModelCounselor,
 } = require("../database/models");
-const db = require("../database/models/index.js")
+const db = require("../database/models")
 
 
 // URL: orientados
