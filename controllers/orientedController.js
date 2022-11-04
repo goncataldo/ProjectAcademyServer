@@ -93,7 +93,8 @@ const createOriented = async (req, res) => {
     :
      res.status(200).json({
       message: "Successfully created new Oriented",
-      info: pepito.id,
+      info: pepito.id + "asd",
+      asd: "pepiti"
     });
 
 
