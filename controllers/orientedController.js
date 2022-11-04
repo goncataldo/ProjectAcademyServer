@@ -111,7 +111,7 @@ const orientedById = async (req, res) => {
       where: {
         id: req.params.id,
       },
-    });
+    }); 
     !oriented ?
       res.status(204).json({ message: 'Oriented not found', info: oriented })
       :
