@@ -72,7 +72,7 @@ const createOriented = async (req, res) => {
       dni,
       password: await bcryptjs.hash(req.body.password, 10),
     });
-    const check = false
+
 
 
  await db.sequelize.query("SET @counter = 0;")
