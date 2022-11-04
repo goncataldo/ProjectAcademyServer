@@ -79,12 +79,12 @@ const createOriented = async (req, res) => {
  await db.sequelize.query("UPDATE orienteds SET id = @counter := @counter + 1 ORDER BY id")
 
 
-      const pepito = ModelOriented.findOne({
-        where: {
-          dni: dni,
-        }
-      })
-      
+ const pepito = await ModelOriented.findOne({
+  where: {
+    dni: req.body.dni,
+  },
+});
+      console.log(pepito)
     !user ?
      res.status(204).json({
       message: "Something went wrong",
