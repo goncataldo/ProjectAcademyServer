@@ -84,7 +84,6 @@ const createOriented = async (req, res) => {
     dni: req.body.dni,
   },
 });
-      console.log(pepito)
     !user ?
      res.status(204).json({
       message: "Something went wrong",
@@ -93,8 +92,7 @@ const createOriented = async (req, res) => {
     :
      res.status(200).json({
       message: "Successfully created new Oriented",
-      info: pepito.id + "asd",
-      asd: "pepiti"
+      info: pepito.id,
     });
 
 
