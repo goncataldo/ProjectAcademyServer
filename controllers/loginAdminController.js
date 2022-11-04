@@ -10,12 +10,14 @@ const adminLogin = async (req, res) => {
         const { id } = admin;
         const timeExpire = 24 * 60 * 60 * 1000 // 24 horas
         const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
-          expiresIn: timeExpire
+          expiresIn: timeExpire,
         });
         console.log(`token: ${token} for: ${admin.name} ${admin.lastname}`);
         const cookiesOptions = {
           expires: new Date(Date.now() + timeExpire), 
-          httpOnly: true,
+          httpOnly: true, // hinder doing document.cookies as it will be httpOnly which will make it more safe
+          secure: true,
+          sameSite: "none",
         };
         res.cookie("jwt", token, cookiesOptions);
         res.status(200).json({
