@@ -73,13 +73,12 @@ const createOriented = async (req, res) => {
       password: await bcryptjs.hash(req.body.password, 10),
     });
     const check = false
-    if(check===false) {
+
 
  await db.sequelize.query("SET @counter = 0;")
  await db.sequelize.query("UPDATE orienteds SET id = @counter := @counter + 1 ORDER BY id")
-      check === true
-    }
-    if(check===true){
+
+
       const pepito = ModelOriented.findOne({
         where: {
           dni: user.dni,
@@ -96,7 +95,7 @@ const createOriented = async (req, res) => {
       message: "Successfully created new Oriented",
       info: pepito.id,
     });
-    }
+
 
   } catch (error) {
     console.log(error);
