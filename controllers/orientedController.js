@@ -75,12 +75,12 @@ const createOriented = async (req, res) => {
     await db.sequelize.query("SET @counter = 0;")
     await db.sequelize.query("UPDATE orienteds SET id = @counter := @counter + 1 ORDER BY id")
     !user ?
-      res.status(204).json({
+      await res.status(204).json({
         message: "Something went wrong",
         info: user.id,
       })
       :
-      res.status(200).json({
+      await res.status(200).json({
         message: "Successfully created new Oriented",
         info: user.id,
       });
