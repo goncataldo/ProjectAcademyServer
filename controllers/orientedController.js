@@ -81,7 +81,7 @@ const createOriented = async (req, res) => {
 
       const pepito = ModelOriented.findOne({
         where: {
-          dni: user.dni,
+          dni: dni,
         }
       })
       
