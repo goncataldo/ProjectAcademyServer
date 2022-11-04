@@ -10,7 +10,7 @@ const db = require("../database/models")
 const getAllOriented = async (req, res) => {
   try {
     const oriented = await ModelOriented.findAll({
-      attributes: ["id", "name", "lastname", "photoProfile", "counselorId"],
+      attributes: ["id", "name", "lastname", "photoProfile", "counselorId", "school"],
     });
     res.json({ message: 'Successful', info: oriented });
   } catch (error) {
