@@ -24,7 +24,7 @@ const PORT = process.env.PORT || "8000";
 app.use(
   cors({
     credentials: true,
-    origin: [`https://project-academy-g2.netlify.app/`],
+    origin: [`https://project-academy-g2.netlify.app`],
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
