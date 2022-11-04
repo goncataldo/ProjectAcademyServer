@@ -72,23 +72,41 @@ const createOriented = async (req, res) => {
       dni,
       password: await bcryptjs.hash(req.body.password, 10),
     });
-    await db.sequelize.query("SET @counter = 0;")
-    await db.sequelize.query("UPDATE orienteds SET id = @counter := @counter + 1 ORDER BY id")
-    !user ?
-      await res.status(204).json({
-        message: "Something went wrong",
-        info: user.id,
+    const check = false
+    if(check===false) {
+ db.sequelize.query("SET auto_increment_offset = 1")
+ db.sequelize.query("SET auto_increment_increment = 1")
+ db.sequelize.query("SET @counter = 0;")
+ db.sequelize.query("UPDATE orienteds SET id = @counter := @counter + 1 ORDER BY id")
+      check === true
+    }
+    if(check===true){
+      const pepito = ModelOriented.findOne({
+        where: {
+          dni: user.dni,
+        }
       })
-      :
-      await res.status(200).json({
-        message: "Successfully created new Oriented",
-        info: user.id,
-      });
+      
+    !user ?
+     res.status(204).json({
+      message: "Something went wrong",
+      info: pepito.id,
+    })
+    :
+     res.status(200).json({
+      message: "Successfully created new Oriented",
+      info: pepito.id,
+    });
+    }
+
   } catch (error) {
     console.log(error);
     res.status(400).json({ message: 'Something went wrong' });
   }
 };
+
+
+
 
 const orientedById = async (req, res) => {
   try {
