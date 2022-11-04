@@ -72,8 +72,8 @@ const createOriented = async (req, res) => {
       dni,
       password: await bcryptjs.hash(req.body.password, 10),
     });
-    await db.query("SET @counter = 0;")
-    await db.query("UPDATE users SET id = @counter := @counter + 1 ORDER BY id")
+    await db.sequelize.query("SET @counter = 0;")
+    await db.sequelize.query("UPDATE users SET id = @counter := @counter + 1 ORDER BY id")
     !user ?
       res.status(204).json({
         message: "Something went wrong",
